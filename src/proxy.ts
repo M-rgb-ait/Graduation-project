@@ -2,7 +2,11 @@ import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
 const authPages = ["/auth/login", "/auth/register", "/auth/forget"];
-const publicPages = ["/en", ...authPages.map((path) => `/en${path}`)];
+const locales = ["en", "ar"];
+const publicPages = locales.flatMap((locale) => [
+  `/${locale}`,
+  ...authPages.map((p) => `/${locale}${p}`),
+]);
 
 export default async function proxy(req: NextRequest) {
   const cookieStore = await cookies();
@@ -10,48 +14,40 @@ export default async function proxy(req: NextRequest) {
 
   const pathname = req.nextUrl.pathname;
 
-  // 1️⃣ Redirect root "/" → "/en"
+  // Get locale from path
+  const locale = locales.includes(pathname.split("/")[1])
+    ? pathname.split("/")[1]
+    : "en";
+
+  // Redirect root "/" → default locale
   if (pathname === "/") {
     const url = req.nextUrl.clone();
-    url.pathname = "/en";
+    url.pathname = `/${locale}`;
     return NextResponse.redirect(url);
   }
 
-  // 2️⃣ صفحات عامة
-  if (publicPages.some((p) => pathname.startsWith(p))) {
-    if (!token) return NextResponse.next();
+  // Check if current path is an auth page
+  const isAuthPage = authPages.some((p) => pathname === `/${locale}${p}`);
 
-    // لو المستخدم مسجل دخول ويحاول يفتح login/register/forget
-    if (authPages.some((p) => pathname.endsWith(p))) {
-      const redirectUrl = new URL("/en", req.nextUrl.origin);
-      return NextResponse.redirect(redirectUrl);
-    }
+  // Check if current path is a public page
+  const isPublicPage = publicPages.includes(pathname);
 
-    return NextResponse.next();
+  // If it's an auth page and user is logged in → redirect to homepage
+  if (isAuthPage && token) {
+    return NextResponse.redirect(new URL(`/${locale}`, req.nextUrl.origin));
   }
 
-  // 3️⃣ صفحات خاصة
-  if (token) return NextResponse.next();
+  // If it's a protected page and user is NOT logged in → redirect to login
+  const isProtectedPage = !isPublicPage;
+  if (isProtectedPage && !token) {
+    return NextResponse.redirect(
+      new URL(`/${locale}/auth/login`, req.nextUrl.origin),
+    );
+  }
 
-  // 4️⃣ غير مسجل دخول → redirect لل login
-  const redirectUrl = new URL("/en/auth/login", req.nextUrl.origin);
-  return NextResponse.redirect(redirectUrl);
+  return NextResponse.next();
 }
 
 export const config = {
   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 };
-
-// import createMiddleware from "next-intl/middleware";
-// import { routing } from "./i18n/routing";
-
-// export default createMiddleware(routing);
-
-// export const config = {
-//   // Match all pathnames except for
-//   // - … if they start with `/api`, `/trpc`, `/_next` or `/_vercel`
-//   // - … the ones containing a dot (e.g. `favicon.ico`)
-//   matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
-// };
-
-// import { getToken } from "next-auth/jwt";

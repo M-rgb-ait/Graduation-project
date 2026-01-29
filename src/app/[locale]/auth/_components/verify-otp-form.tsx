@@ -101,13 +101,7 @@ export default function VerifyOtpForm() {
           <SendNewCode />
 
           {/* Form Submit */}
-          <Button
-            spinner={isPending}
-            disabled={isPending}
-            className="w-full"
-            // type="submit"
-            // variant="primary"
-          >
+          <Button spinner={isPending} disabled={isPending} className="w-full">
             {t("verify-otp")}
           </Button>
         </form>

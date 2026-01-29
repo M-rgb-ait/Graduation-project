@@ -25,12 +25,14 @@ import { Button } from "@/src/components/ui/button";
 import { Link } from "@/src/i18n/navigation";
 import { PhoneInput } from "@/components/ui/phone-input";
 import { zodResolver } from "@hookform/resolvers/zod";
+
+import flags from "react-phone-number-input/flags";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
-import flags from "react-phone-number-input/flags";
 
 export default function Registerform() {
-  const [showNewPassword, setShowNewPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRePassword, setShowRePassword] = useState(false);
 
   //Translations
   const t = useTranslations();
@@ -185,11 +187,12 @@ export default function Registerform() {
                     onValueChange={field.onChange}
                     defaultValue={field.value}
                   >
-                    <FormControl>
-                      <SelectTrigger>
+                    <FormControl className="w-full">
+                      <SelectTrigger className="w-full">
                         <SelectValue placeholder={t("select-gender")} />
                       </SelectTrigger>
                     </FormControl>
+
                     <SelectContent>
                       <SelectItem value="male">{t("male")}</SelectItem>
                       <SelectItem value="female">{t("female")}</SelectItem>
@@ -203,43 +206,44 @@ export default function Registerform() {
 
           {/* Password */}
           <div className="mt-3">
-            <FormLabel className="mb-1 text-sm font-semibold text-zinc-800 dark:text-zinc-50">
-              {t("password")}
-            </FormLabel>
-            {/* New Password */}
             <FormField
               control={form.control}
               name="password"
               render={({ field }) => (
-                <FormItem className="my-6">
-                  {/* Label */}
-                  <FormLabel className="mt-6 text-sm font-medium text-zinc-800 dark:text-zinc-50">
+                <FormItem>
+                  <FormLabel className="mb-1 text-sm font-semibold text-zinc-800 dark:text-zinc-50">
                     {t("password")}
                   </FormLabel>
-                  {/* Field */}
-                  <FormControl className="">
+
+                  <FormControl>
                     <div className="relative w-full">
-                      {showNewPassword ? (
+                      {/* Icon */}
+                      {showPassword ? (
                         <EyeOff
-                          onClick={() => setShowNewPassword(false)}
-                          className="absolute end-4 top-4 text-zinc-400"
+                          onClick={() => setShowPassword(false)}
+                          className="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer text-zinc-400 hover:text-zinc-600"
                           size={20}
                         />
                       ) : (
                         <Eye
-                          onClick={() => setShowNewPassword(true)}
-                          className="absolute end-4 top-4 text-zinc-700"
+                          onClick={() => setShowPassword(true)}
+                          className="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer text-zinc-600 hover:text-zinc-800"
                           size={20}
                         />
                       )}
+
+                      {/* Input */}
                       <Input
-                        className="col-span-9 w-full text-zinc-800"
                         {...field}
-                        type={showNewPassword ? "text" : "password"}
+                        type={showPassword ? "text" : "password"}
                         placeholder="********"
+                        autoComplete="new-password"
+                        className="pe-12" // padding علشان الأيقونة
                       />
                     </div>
                   </FormControl>
+
+                  <FormMessage />
                 </FormItem>
               )}
             />
@@ -247,42 +251,44 @@ export default function Registerform() {
 
           {/* Confirm Password */}
           <div className="mb-4 mt-3">
-            <FormLabel className="mb-1 text-sm font-semibold text-zinc-800 dark:text-zinc-50">
-              {t("confirm-password")}
-            </FormLabel>
             <FormField
               control={form.control}
               name="rePassword"
               render={({ field }) => (
-                <FormItem className="my-6">
-                  {/* Label */}
-                  <FormLabel className="mt-6 text-sm font-medium text-zinc-800 dark:text-zinc-50">
-                    {t("password")}
+                <FormItem>
+                  <FormLabel className="mb-1 text-sm font-semibold text-zinc-800 dark:text-zinc-50">
+                    {t("confirm-password")}
                   </FormLabel>
-                  {/* Field */}
-                  <FormControl className="">
+
+                  <FormControl>
                     <div className="relative w-full">
-                      {showNewPassword ? (
+                      {/* Icon */}
+                      {showRePassword ? (
                         <EyeOff
-                          onClick={() => setShowNewPassword(false)}
-                          className="absolute end-4 top-4 text-zinc-400"
+                          onClick={() => setShowRePassword(false)}
+                          className="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer text-zinc-400 hover:text-zinc-600"
                           size={20}
                         />
                       ) : (
                         <Eye
-                          onClick={() => setShowNewPassword(true)}
-                          className="absolute end-4 top-4 text-zinc-700"
+                          onClick={() => setShowRePassword(true)}
+                          className="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer text-zinc-600 hover:text-zinc-800"
                           size={20}
                         />
                       )}
+
+                      {/* Input */}
                       <Input
-                        className="col-span-9 w-full text-zinc-800"
                         {...field}
-                        type={showNewPassword ? "text" : "password"}
+                        type={showRePassword ? "text" : "password"}
                         placeholder="********"
+                        autoComplete="new-password"
+                        className="pe-12"
                       />
                     </div>
                   </FormControl>
+
+                  <FormMessage />
                 </FormItem>
               )}
             />

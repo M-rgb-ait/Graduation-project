@@ -54,5 +54,7 @@
   "create-a-new-password": "انشاء رقم سري جديد",
   "set-a-strong-password-to-secure-your-account": "اضبط كلمة مرور قوية لتأمين حسابك.",
   "reset-password": "إعادة تعيين كلمة المرور",
-  "delelt-success": "تم حذف الحساب بنجاح"
+  "delelt-success": "تم حذف الحساب بنجاح",
+  "dont-have-account": "ليس لديك حساب بعد؟ <link>أنشئ واحدا الأن! </link>",
+  "delete-my-account": "حذف الحسابي"
 }

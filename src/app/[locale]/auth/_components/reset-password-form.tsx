@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
-import { EyeOff, Link } from "lucide-react";
+import { Eye, EyeOff, Link } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useResetPasswordFlow } from "../_providers/reset-password-flow.provider";
 import {
@@ -28,8 +28,11 @@ import {
 } from "@/src/components/ui/form";
 import { Input } from "@/src/components/ui/input";
 import { Button } from "@/src/components/ui/button";
+import { useState } from "react";
 
 export default function ResetPasswordForm() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showRePassword, setShowRePassword] = useState(false);
   // Navigation
   const router = useRouter();
 
@@ -92,72 +95,95 @@ export default function ResetPasswordForm() {
               <div className="mx-auto w-fit space-y-6 border-y border-zinc-200 pb-9 pt-4 dark:border-zinc-600">
                 {/* New Password input */}
 
-                <FormField
-                  control={form.control}
-                  name="newPassword"
-                  render={({ field }) => (
-                    <FormItem>
-                      {/* Label */}
-                      <FormLabel className="text-sm font-semibold dark:text-zinc-50">
-                        {t("password")}
-                      </FormLabel>
+                {/* Password */}
+                <div className="mt-3">
+                  <FormField
+                    control={form.control}
+                    name="newPassword"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="mb-1 text-sm font-semibold text-zinc-800 dark:text-zinc-50">
+                          {t("password")}
+                        </FormLabel>
 
-                      {/* Field */}
-                      <FormControl>
-                        <div className="relative">
-                          {/* Icon */}
-                          <EyeOff
-                            className="absolute end-4 top-4 text-zinc-400"
-                            size={20}
-                          />
+                        <FormControl>
+                          <div className="relative w-full">
+                            {/* Icon */}
+                            {showPassword ? (
+                              <EyeOff
+                                onClick={() => setShowPassword(false)}
+                                className="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer text-zinc-400 hover:text-zinc-600"
+                                size={20}
+                              />
+                            ) : (
+                              <Eye
+                                onClick={() => setShowPassword(true)}
+                                className="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer text-zinc-600 hover:text-zinc-800"
+                                size={20}
+                              />
+                            )}
 
-                          <Input
-                            {...field}
-                            type="password"
-                            placeholder="******"
-                          />
-                        </div>
-                      </FormControl>
+                            {/* Input */}
+                            <Input
+                              {...field}
+                              type={showPassword ? "text" : "password"}
+                              placeholder="********"
+                              autoComplete="new-password"
+                              className="pe-12" // padding علشان الأيقونة
+                            />
+                          </div>
+                        </FormControl>
 
-                      {/* Error message */}
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
 
                 {/* Confirm Password */}
-                <FormField
-                  control={form.control}
-                  name="confirmNewPassword"
-                  render={({ field }) => (
-                    <FormItem>
-                      {/* Label */}
-                      <FormLabel className="text-sm font-semibold dark:text-zinc-50">
-                        {t("confirm-password")}
-                      </FormLabel>
+                <div className="mb-4 mt-3">
+                  <FormField
+                    control={form.control}
+                    name="confirmNewPassword"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="mb-1 text-sm font-semibold text-zinc-800 dark:text-zinc-50">
+                          {t("confirm-password")}
+                        </FormLabel>
 
-                      {/* Field */}
-                      <FormControl>
-                        <div className="relative">
-                          {/* Icon */}
-                          <EyeOff
-                            className="absolute end-4 top-4 text-zinc-400"
-                            size={20}
-                          />
+                        <FormControl>
+                          <div className="relative w-full">
+                            {/* Icon */}
+                            {showRePassword ? (
+                              <EyeOff
+                                onClick={() => setShowRePassword(false)}
+                                className="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer text-zinc-400 hover:text-zinc-600"
+                                size={20}
+                              />
+                            ) : (
+                              <Eye
+                                onClick={() => setShowRePassword(true)}
+                                className="absolute end-4 top-1/2 -translate-y-1/2 cursor-pointer text-zinc-600 hover:text-zinc-800"
+                                size={20}
+                              />
+                            )}
 
-                          <Input
-                            {...field}
-                            type="password"
-                            placeholder="******"
-                          />
-                        </div>
-                      </FormControl>
+                            {/* Input */}
+                            <Input
+                              {...field}
+                              type={showRePassword ? "text" : "password"}
+                              placeholder="********"
+                              autoComplete="new-password"
+                              className="pe-12"
+                            />
+                          </div>
+                        </FormControl>
 
-                      {/* Error message */}
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
 
                 {/* Reset button */}
                 <Button

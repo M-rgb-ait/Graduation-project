@@ -8,6 +8,7 @@ import {
 import ReactQueryProvider from "./components/react-quary-provider";
 import { ThemeProvider } from "next-themes";
 import ToasterProvider from "./components/toaster.provider";
+import { UserProvider } from "./components/get-user-name";
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -33,7 +34,9 @@ export default function Providers({ children }: ProviderProps) {
         enableSystem
         disableTransitionOnChange
       >
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <ReactQueryProvider>
+          <UserProvider>{children}</UserProvider>
+        </ReactQueryProvider>
       </ThemeProvider>
       <ToasterProvider />
     </NextIntlClientProvider>

@@ -1,5 +1,3 @@
-"use client";
-
 import { toast } from "sonner";
 import { useMutation } from "@tanstack/react-query";
 import { forgotPasswordAction } from "../_actions/forgot-password";

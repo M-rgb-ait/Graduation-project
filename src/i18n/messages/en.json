@@ -53,5 +53,7 @@
   "create-a-new-password": "create a new password",
   "set-a-strong-password-to-secure-your-account": "Set a strong password to secure your account.",
   "reset-password": "Reset password",
-  "delelt-success": "delelt-success"
+  "delelt-success": "delelt-success",
+  "dont-have-account": "Don't have an account yet?<link> Create one now!</link>",
+  "delete-my-account": "delete my account"
 }

@@ -36,7 +36,7 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> =
       return (
         <RPNInput.default
           ref={ref}
-          className={cn("flex", className)}
+          className={cn("flex w-full items-center", className)}
           flagComponent={FlagComponent}
           countrySelectComponent={CountrySelect}
           inputComponent={InputComponent}
@@ -65,13 +65,15 @@ const InputComponent = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <Input
     className={cn(
-      "ltr:rounded-e-lg ltr:rounded-s-none ltr:border-s-0 rtl:rounded-e-none rtl:rounded-s-lg rtl:border-e-0",
+      "flex-1 min-w-0 w-full ltr:rounded-e-lg ltr:rounded-s-none ltr:border-s-0 rtl:rounded-e-none rtl:rounded-s-lg rtl:border-e-0",
       className,
     )}
     {...props}
     ref={ref}
   />
 ));
+InputComponent.displayName = "InputComponent";
+
 InputComponent.displayName = "InputComponent";
 
 type CountryEntry = { label: string; value: RPNInput.Country | undefined };
@@ -99,19 +101,23 @@ const CountrySelect = ({
         <Button
           type="button"
           variant="outline"
-          className="flex h-full items-center gap-2 border-zinc-300 px-3 hover:border-zinc-400 hover:bg-transparent focus:z-10 dark:border-zinc-600 ltr:rounded-e-none ltr:border-2 ltr:border-r-0 rtl:rounded-e-none rtl:border-2 rtl:border-e-0"
+          className="shrink-0 flex h-full items-center gap-2 px-3 border-zinc-300 hover:border-zinc-400 hover:bg-transparent focus:z-10 dark:border-zinc-600 ltr:rounded-e-none rtl:rounded-e-none"
           disabled={disabled}
         >
           <FlagComponent
             country={selectedCountry}
             countryName={selectedCountry}
           />
-          <ChevronsUpDown
-            className={cn(
-              "-mr-2 size-4 text-neutral-950 opacity-50",
-              disabled ? "hidden" : "opacity-100",
-            )}
-          />
+
+          {/* هنا نعرض الكود */}
+          <span className="text-sm font-medium">
+            +
+            {selectedCountry
+              ? RPNInput.getCountryCallingCode(selectedCountry)
+              : ""}
+          </span>
+
+          <ChevronsUpDown className="size-4 text-neutral-950 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-72 p-0">

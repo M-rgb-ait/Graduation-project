@@ -2,29 +2,30 @@ import "server-only";
 import { cookies } from "next/headers";
 
 /**
- * Function لحفظ أو مسح accessToken على السيرفر
- * @param token - لو موجود يحفظه، لو مش موجود يمسح الكوكي
+ * @param token
  */
 export async function handleAccessTokenCookie(token?: string) {
   const cookieStore = await cookies();
 
   if (token) {
-    // حفظ الكوكي
+    const ONE_DAY = 60 * 60 * 24;
+    // save
     cookieStore.set("accessToken", token, {
-      httpOnly: true, // مش قابل للقراءة من الكلاينت
-      secure: process.env.NODE_ENV === "production", // https فقط في الإنتاج
-      path: "/", // متاح لكل صفحات الدومين
-      sameSite: "lax", // حماية CSRF أساسية
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production", // https
+      path: "/",
+      sameSite: "lax", //  CSRF
+      maxAge: ONE_DAY * 7, // 7 Day
     });
     console.log("Access token set");
   } else {
-    // مسح الكوكي
+    // delete
     cookieStore.set("accessToken", "", {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       path: "/",
       sameSite: "lax",
-      expires: new Date(0), // expire فوراً
+      expires: new Date(0), // expire
     });
     console.log("Access token cleared");
   }
