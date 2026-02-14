@@ -5,6 +5,11 @@ const authPages = ["/auth/login", "/auth/register", "/auth/forget"];
 const locales = ["en", "ar"];
 const publicPages = locales.flatMap((locale) => [
   `/${locale}`,
+  "/products",
+  "/categories",
+  "/occasions",
+  "/contact",
+  "/about",
   ...authPages.map((p) => `/${locale}${p}`),
 ]);
 

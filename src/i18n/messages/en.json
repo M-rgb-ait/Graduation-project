@@ -55,5 +55,146 @@
   "reset-password": "Reset password",
   "delelt-success": "delelt-success",
   "dont-have-account": "Don't have an account yet?<link> Create one now!</link>",
-  "delete-my-account": "delete my account"
+  "delete-my-account": "delete my account",
+  "newsletter-subscribe": "New sletter subscribe",
+  "copy-rights": "All rights reserved | {year}",
+  "rose-ecommerce": "Rose E-Commerce App",
+  "discover-website": "Discover our website",
+  "promo-discount": "Get <strong>{discount, number, percentage-base}</strong> Off Discount Coupon",
+  "subscribe": "Subscribe",
+  "gift-looking-for": "What awesome gift are you looking for?",
+
+  "home": "Home",
+  "products": "Products",
+  "categories": "Categories",
+  "occasions": "Occasions",
+  "contact": "Contact",
+  "about": "About",
+  "terms-conditions": "Terms & Conditions",
+  "privacy-policy": "Privacy Policy",
+  "faqs": "FAQs",
+  "delivering-moments": "Delivering <strong>Moments</strong> That Matter",
+
+  "make-message": "We make every gift and product a message of love, care, and unforgettable memories for every special occasion.",
+
+  "discover": "Discover More",
+
+  "competitive-shopping": "Competitive shopping experience",
+  "premium-quality": "Premium quality products",
+  "perfect-occasion": "Perfect for every occasion",
+  "fast-delivery": "Fast and reliable delivery",
+
+  "img-box-ribbon": "Gift box with ribbon",
+  "img-red-heard": "Red heart decoration",
+  "img-balloons": "Decorative balloons",
+
+  "check-out-gallery": "Explore Our Moments",
+  "imgs-gift-boxes": "Premium gift box collection",
+  "gallery": "Gallery",
+  "trusted-by-number": "Trusted by over <strong></strong> companies",
+
+  "trusted-img-1": "Coconut brand logo",
+  "trusted-img-2": "Ginyard brand logo",
+  "trusted-img-3": "Ingoude brand logo",
+  "trusted-img-4": "Velvet brand logo",
+  "trusted-img-5": "Ingoude partner logo",
+  "trusted-img-6": "Habuy brand logo",
+  "home-carousel-badge": "Starting from {price, number, currency-base}",
+  "home-carousel-title": "Best gifts for your loved ones",
+  "home-section-one-button": "Shop now",
+  "home-static-image-alt": "Red gift boxes and presents",
+  "home-carousel-button": "Shop now",
+
+  "home-carousel-slide-one-title": "Fresh gifts collection",
+  "home-carousel-slide-one-desc": "Discover unique gifts for every occasion",
+  "home-carousel-slide-alt": "Gift boxes and presents",
+
+  "home-carousel-slide-two-title": "Special offers",
+  "home-carousel-slide-two-desc": "Best deals and discounts just for you",
+
+  "home-carousel-slide-three-title": "Holiday collection",
+  "home-carousel-slide-three-desc": "Perfect gifts for the festive season",
+  "home-carousel-slide-three-alt": "Christmas gifts and decorations",
+  "home-occasions-item-one-alt": "ring in a box with flowers",
+  "home-occasions-item-one-badge": "Wedding",
+  "home-occasions-item-one-title": "Celebrate Her Forever with a Gift She’ll Always Remember",
+  "home-occasions-item-two-alt": "notebook and present",
+  "home-occasions-item-two-badge": "Engagement",
+  "home-occasions-item-two-desc": "Honor the Beginning of a Beautiful Journey Together",
+  "home-occasions-item-three-alt": "letter with red flowers and present",
+  "home-occasions-item-three-badge": "Anniversary",
+  "home-occasions-item-three-desc": "Mark Every Year of Love with a Meaningful Surprise",
+  "home-features-item-one-title": "Free Delivery",
+  "home-features-item-two-title": "Get Refund",
+  "home-features-item-two-desc": "Refunds within 30 days",
+  "home-features-item-three-title": "Safe Payment",
+  "home-features-item-three-desc": "{count, number, percentage-base} Secure Payment",
+  "home-features-item-four-title": "24/7 Support",
+  "home-features-item-four-desc": "Contact us at any time",
+  "home-features-item-one-desc": "For orders above {price, number, currency-no-digits}",
+
+  "home-carousel-slide-one-alt": "Summer sale banner",
+
+  "home-carousel-slide-two-alt": "New arrivals banner",
+
+  "home-carousel-appliances-title": "Appliances",
+  "home-carousel-appliances-desc": "Home and kitchen appliances",
+  "home-carousel-appliances-alt": "Appliances category",
+
+  "home-carousel-beepers-title": "Beepers",
+  "home-carousel-beepers-desc": "Smart devices and accessories",
+  "home-carousel-beepers-alt": "Beepers category",
+
+  "home-carousel-children-books-title": "Children Books",
+  "home-carousel-children-books-desc": "Books for kids and children",
+  "home-carousel-children-books-alt": "Children books category",
+
+  "home-carousel-dresses-title": "Dresses",
+  "home-carousel-dresses-desc": "Fashion and clothing",
+  "home-carousel-dresses-alt": "Dresses category",
+
+  "home-carousel-earbuds-title": "Earbuds",
+  "home-carousel-earbuds-desc": "Wireless audio devices",
+  "home-carousel-earbuds-alt": "Earbuds category",
+
+  "home-carousel-furniture-title": "Furniture",
+  "home-carousel-furniture-desc": "Modern home furniture",
+  "home-carousel-furniture-alt": "Furniture category",
+
+  "home-carousel-misc-title": "Miscellaneous",
+  "home-carousel-misc-desc": "Various useful products",
+  "home-carousel-misc-alt": "Misc category",
+
+  "home-carousel-mobiles-title": "Mobiles",
+  "home-carousel-mobiles-desc": "Smartphones and accessories",
+  "home-carousel-mobiles-alt": "Mobiles category",
+
+  "home-carousel-nike-title": "Nike",
+  "home-carousel-nike-desc": "Sportswear and shoes",
+  "home-carousel-nike-alt": "Nike brand",
+
+  "home-carousel-dermahub-title": "The Derma Hub",
+  "home-carousel-dermahub-desc": "Skin care products",
+  "home-carousel-dermahub-alt": "The Derma Hub brand",
+  "home-occasions-item-two-title": "Wedding gifts",
+
+  "home-occasions-item-three-title": "Graduation gifts",
+
+  "home-occasions-item-four-alt": "Valentine occasion",
+  "home-occasions-item-four-badge": "Valentine",
+  "home-occasions-item-four-title": "Valentine gifts",
+
+  "home-occasions-item-five-alt": "Mother's day occasion",
+  "home-occasions-item-five-badge": "Mother's Day",
+  "home-occasions-item-five-title": "Mother's day gifts",
+
+  "home-occasions-item-six-alt": "Eid occasion",
+  "home-occasions-item-six-badge": "Eid",
+  "home-occasions-item-six-title": "Eid gifts",
+  "reset": "Reset",
+  "new": "New",
+  "hot-p": "Hot",
+  "out-of-stock-p": "Out of stock",
+  "emptyTitle": "No products available",
+  "emptyDesc": "This occasion does not have any products yet. Please check back later."
 }

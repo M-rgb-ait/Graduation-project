@@ -1,6 +1,6 @@
 "use server";
 
-import { JSON_HEADER } from "@/src/lib/constant/api.constant";
+import { JSON_HEADER } from "@/src/lib/constants/api.constant";
 import { verifyOtpValues } from "@/src/lib/schemes/auth.schemes";
 
 export const verifyOtp = async (values: verifyOtpValues) => {

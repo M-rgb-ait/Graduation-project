@@ -1,6 +1,6 @@
 "use server";
 
-import { JSON_HEADER } from "@/src/lib/constant/api.constant";
+import { JSON_HEADER } from "@/src/lib/constants/api.constant";
 import { handleAccessTokenCookie } from "@/src/lib/utils/token";
 import { cookies } from "next/headers";
 

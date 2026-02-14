@@ -1,7 +1,7 @@
 "use server";
 
 import { loginFields } from "@/src/lib/schemes/auth.schemes";
-import { JSON_HEADER } from "./../../../../lib/constant/api.constant";
+import { JSON_HEADER } from "../../../../lib/constants/api.constant";
 import { handleAccessTokenCookie } from "@/src/lib/utils/token";
 export default async function LoginAction(values: loginFields) {
   try {
