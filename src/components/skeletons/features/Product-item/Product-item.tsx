@@ -19,7 +19,7 @@ export default function ProductItem({ product }: { product: Product }) {
   const isHot = product.sold >= 30;
 
   return (
-    <main className="w-[302px]">
+    <main className="w-full max-w-[302px]">
       <div className="relative text-center">
         <Image
           src={product.imgCover}
