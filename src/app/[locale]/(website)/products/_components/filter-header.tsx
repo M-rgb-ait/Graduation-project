@@ -31,7 +31,7 @@ export default function FilterHeader({ title, query }: FilterHeaderProps) {
     <header className="mb-3 flex items-center justify-between ">
       {/* Filter title */}
       <h2 className="text-lg font-semibold text-zinc-800 dark:text-zinc-50">
-        {t(title)}
+        {title}
       </h2>
 
       {/* Reset button */}

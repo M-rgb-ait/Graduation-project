@@ -1,4 +1,4 @@
-import { Square } from "lucide-react";
+import { Square } from "../..";
 
 export default function OccasionSkeleton({ blocks = 6 }) {
   return (
