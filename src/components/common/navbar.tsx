@@ -8,27 +8,36 @@ import { Link } from "@/src/i18n/navigation";
 
 export default function Navbar() {
   const pathName = usePathname();
-  const t = useTranslations(); // Translation hook
+  const t = useTranslations();
+
+  const localeRemovedPath = pathName.replace(/^\/(en|ar)/, "") || "/";
 
   return (
     <nav className="bg-maroon-700 text-zinc-50 dark:bg-softpink-200 dark:text-maroon-800">
-      <ul className="flex items-center justify-center gap-4">
-        {HEADER_NAV_LINKS.map((link) => (
-          <li
-            key={link.name}
-            className={cn(
-              "flex items-center gap-1 border-b-2 border-transparent p-3",
-              pathName === link.path &&
-                "border-b-softpink-200 text-softpink-200 dark:border-b-maroon-800 dark:text-maroon-800",
-            )}
-          >
-            {/* Nav icon */}
-            <link.icon className="size-5" />
+      <ul className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 md:gap-6 p-2">
+        {HEADER_NAV_LINKS.map((link) => {
+          const isActive =
+            (link.path === "/" && localeRemovedPath === "/") ||
+            (link.path !== "/" && localeRemovedPath.startsWith(link.path));
 
-            {/* Nav name (translated) */}
-            <Link href={link.path}>{t(link.name)}</Link>
-          </li>
-        ))}
+          return (
+            <li
+              key={link.name}
+              className={cn(
+                "flex flex-col items-center sm:flex-row gap-1 border-b-2 border-transparent p-2 sm:p-3 rounded-sm transition-colors",
+                isActive &&
+                  "border-pink-400 text-pink-400 dark:border-pink-500 dark:text-pink-300 hover:text-pink-300 dark:hover:text-pink-200",
+              )}
+            >
+              {link.icon && (
+                <link.icon className="w-5 h-5 mb-1 sm:mb-0 sm:me-1" />
+              )}
+              <Link href={link.path} className="text-sm sm:text-base">
+                {t(link.name)}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );

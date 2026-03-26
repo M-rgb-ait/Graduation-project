@@ -1,5 +1,6 @@
 {
   "title": "Hello world!",
+  "hello": "hello",
   "hhggghgh": "welcome to",
   "try-again": "welcome",
   "error-message": "error",
@@ -196,5 +197,9 @@
   "hot-p": "Hot",
   "out-of-stock-p": "Out of stock",
   "emptyTitle": "No products available",
-  "emptyDesc": "This occasion does not have any products yet. Please check back later."
+  "emptyDesc": "This occasion does not have any products yet. Please check back later.",
+  "my-profile": "my-profile",
+  "my-addresses": "my-addresses",
+  "my-orders": "my-orders",
+  "dashboard": "dashboard"
 }

@@ -1,3 +1,5 @@
+"use client";
+
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import NewsletterSubscribe from "./newsletter-subscibe";
@@ -6,17 +8,16 @@ import { Link } from "@/src/i18n/navigation";
 import homeSectionImg from "@/public/assets/app-logo1.png";
 
 export default function Footer() {
-  // Translations
   const t = useTranslations();
   const format = useFormatter();
   const locale = useLocale();
 
   return (
     <div className="bg-zinc-800 py-10 text-zinc-100 dark:bg-zinc-900">
-      <footer className="container flex gap-8 px-10">
-        <div className="text-center">
-          {/* App Logo */}
-          <div className="relative w-60 h-60">
+      <footer className="container flex flex-col md:flex-row gap-10 px-4 md:px-10">
+        {/* Logo & App Name */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="relative w-40 h-40 md:w-60 md:h-60">
             <Image
               src={homeSectionImg}
               alt="red presents"
@@ -25,13 +26,10 @@ export default function Footer() {
               priority
             />
           </div>
-          {/* App Name */}
           <h2 className="mt-4 text-lg font-semibold text-softpink-300">
             {t("rose-ecommerce")}
           </h2>
-          {/* Copyrights */}
-          <p className="text-sm">
-            {" "}
+          <p className="text-sm mt-1">
             {t("copy-rights", {
               year: format.dateTime(new Date(), {
                 numberingSystem: locale === "ar" ? "arab" : "latn",
@@ -40,12 +38,13 @@ export default function Footer() {
             })}
           </p>
         </div>
+
+        {/* Navigation Links */}
         <div className="flex-1">
-          <h3 className="mb-2 text-lg text-softpink-300">
+          <h3 className="mb-2 text-lg text-softpink-300 text-center md:text-left">
             {t("discover-website")}
           </h3>
-          <ul className="flex-1 space-y-1.5 font-medium">
-            {/* Navigation */}
+          <ul className="flex flex-col items-center md:items-start space-y-1.5 font-medium">
             {FOOTER_NAV_LINKS.map((link) => (
               <li key={link.name}>
                 <Link href={link.path}>{t(link.name)}</Link>
@@ -53,9 +52,10 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-        <div>
-          {/* Discount  */}
-          <h3 className="text-lg text-softpink-300">
+
+        {/* Newsletter / Promo */}
+        <div className="flex flex-col items-center md:items-start text-center md:text-left">
+          <h3 className="text-lg text-softpink-300 mb-2">
             {t.rich("promo-discount", {
               strong: (chunks) => (
                 <span className="text-zinc-100">{chunks}</span>
@@ -63,8 +63,6 @@ export default function Footer() {
               discount: 0.2,
             })}
           </h3>
-
-          {/* News letter subscribing  */}
           <p className="mb-5 text-sm text-zinc-400">
             {t("newsletter-subscribe")}
           </p>
