@@ -10,10 +10,15 @@ declare type registerResponse = {
 declare type loginRespons = {
   token: string;
   user: {
-    _id: string;
+    id: string;
+    username: string;
+    email: string;
+    phone: string | null;
     firstName: string;
     lastName: string;
-    email: string;
+    gender: string;
+    emailVerified: boolean;
+    phoneVerified: boolean;
     role: string;
   };
 };

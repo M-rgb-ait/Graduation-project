@@ -12,17 +12,14 @@ import UserDropdown from "@/src/app/[locale]/(website)/products/_components/user
 import { useUser } from "../providers/components/get-user-name";
 
 export default function Header() {
-  // tarsnlation
   const t = useTranslations();
   const { user } = useUser();
 
   return (
     <div className="fixed inset-x-0 top-0 z-50 bg-white py-1 dark:bg-zinc-800">
-      {/* Applicatino header */}
       <header className="container flex flex-col gap-3 px-4 py-2 md:flex-row md:items-center md:gap-4">
         {/* Logo */}
-        <div className="relative flex items-center justify-center md:justify-between">
-          {" "}
+        <div className="relative flex items-center justify-between w-full md:w-auto">
           <Link href="/">
             <div className="relative h-14 w-14 md:h-20 md:w-20">
               <Image
@@ -34,9 +31,9 @@ export default function Header() {
               />
             </div>
           </Link>
-          {/* icons تظهر جنب اللوجو في الموبايل */}
-          <div className="absolute end-0 hidden sm:flex items-center gap-3">
-            {" "}
+
+          {/* Mobile Icons */}
+          <div className="absolute end-0 flex sm:hidden items-center gap-3">
             <Heart size={20} />
             <Link href="/cart">
               <ShoppingCart size={20} />
@@ -47,12 +44,16 @@ export default function Header() {
         </div>
 
         {/* Search */}
-        <div className="w-full md:flex-1">
-          <Input placeholder={t("gift-looking-for")} type="search" />
+        <div className="w-full md:flex-1 md:mx-4">
+          <Input
+            placeholder={t("gift-looking-for")}
+            type="search"
+            className="w-full"
+          />
         </div>
 
         {/* Desktop Menu */}
-        <div className="flex items-center gap-4 divide-x-2 rtl:divide-x-reverse">
+        <div className="hidden md:flex items-center gap-4">
           {/* User */}
           <div className="flex items-center gap-1.5">
             {user ? (
@@ -65,25 +66,21 @@ export default function Header() {
             )}
           </div>
 
-          {/* Wishlist / cart */}
-          <div className="flex items-center gap-2.5 ps-4">
-            <Heart />
-            <Link href="/cart">
-              <ShoppingCart />
-            </Link>
-          </div>
-
-          {/* Locale */}
-          <div className="ps-4">
+          {/* Right group */}
+          <div className="flex items-center gap-4 ml-auto">
+            <div className="flex items-center gap-2.5">
+              <Heart />
+              <Link href="/cart">
+                <ShoppingCart />
+              </Link>
+            </div>
             <ToggleLocale />
+            <ThemeToggle />
           </div>
-
-          {/* Theme */}
-          <ThemeToggle />
         </div>
       </header>
 
-      {/* Application nav links / pages */}
+      {/* Navigation links */}
       <Navbar />
     </div>
   );

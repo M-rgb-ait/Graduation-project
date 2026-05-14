@@ -11,14 +11,14 @@ export default async function ProductsList({
   searchParams: SearchParams;
 }) {
   // Fetch data
-  const { products, metadata } = await getProducts(searchParams);
+  const { products, metadata } = await getProducts(searchParams ?? "");
 
   return (
     <div className="flex flex-col gap-6">
       {/* <div className="grid grid-cols-1 place-items-center gap-2 lg:grid-cols-2 xl:grid-cols-3"> */}
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-3">
         <Suspense fallback={<ProductsListSkeleton />}>
-          {products.map((item: Product) => (
+          {products?.map((item: Product) => (
             <Link href={`/products/${item._id}`} key={item._id}>
               <ProductItem product={item} />
             </Link>

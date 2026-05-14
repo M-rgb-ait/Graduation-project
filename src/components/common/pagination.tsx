@@ -52,7 +52,7 @@ export default function PaginationComponent({
 
   // Variables
   const currentPage = Number(searchParams.get("page") || 1);
-  const totalPages = metaData.totalPages;
+  const totalPages = metaData?.totalPages;
 
   // Functions
   const handlePageChange = (newPage: number) => {

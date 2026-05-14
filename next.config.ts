@@ -15,3 +15,9 @@ const nextConfig: NextConfig = {
 
 const withNextIntl = createNextIntlPlugin();
 export default withNextIntl(nextConfig);
+
+// {
+//   protocol: "https",
+//   hostname: "rose-app.elevate-bootcamp.cloud",
+//   pathname: "/**",
+// },

@@ -33,6 +33,7 @@ export default function Loginform() {
     defaultValues: {
       email: "",
       password: "",
+      // username: "",
     },
     resolver: zodResolver(loginSchema),
   });
@@ -58,7 +59,29 @@ export default function Loginform() {
           </div>
 
           <div className="mt-5 border-y border-solid border-zinc-200 dark:border-zinc-600 sm:mx-auto sm:w-full sm:max-w-sm">
-            {/* email */}
+            {/* <div className="w-full max-sm:w-full">
+              <FormLabel className="mb-1 text-sm font-semibold text-zinc-800 dark:text-zinc-50">
+                {t("first-name")}
+              </FormLabel>
+              <FormField
+                control={form.control}
+                name="username"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        type="text"
+                        {...field}
+                        placeholder={t("mohamed")}
+                        autoComplete="firstName"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div> */}
+
             <div className="mt-3">
               <FormLabel className="mb-1 text-sm font-semibold text-zinc-800 dark:text-zinc-50">
                 {t("email")}
@@ -176,3 +199,28 @@ export default function Loginform() {
     </section>
   );
 }
+
+// {/* email */}
+// <div className="mt-3">
+//   <FormLabel className="mb-1 text-sm font-semibold text-zinc-800 dark:text-zinc-50">
+//     {t("email")}
+//   </FormLabel>
+
+//   <FormField
+//     control={form.control}
+//     name="email"
+//     render={({ field }) => (
+//       <FormItem>
+//         <FormControl>
+//           <Input
+//             type="Email"
+//             {...field}
+//             placeholder={t("user-example")}
+//             autoComplete="email"
+//           />
+//         </FormControl>
+//         <FormMessage />
+//       </FormItem>
+//     )}
+//   />
+// </div>

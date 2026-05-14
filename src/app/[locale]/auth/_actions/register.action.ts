@@ -17,7 +17,7 @@ export default async function RegisterAction(values: registerFields) {
           "Something went wrong, try again later",
       );
     }
-    console.log("register payload", payload);
+    console.log("Register payload", payload);
     return payload;
   } catch (err) {
     throw err;

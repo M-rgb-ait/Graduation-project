@@ -12,22 +12,22 @@ export default function CategorieItem() {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const selectedCategory = searchParams.get("category");
+  const selectedCategory = searchParams.get("categoryId");
   const { categories } = useInfiniteCategories();
   // Functions
   const handleClick = (id: string) => {
     const newParams = new URLSearchParams(searchParams);
     if (id === selectedCategory) {
-      newParams.delete("category");
+      newParams.delete("categoryId");
     } else {
-      newParams.set("category", id);
+      newParams.set("categoryId", id);
     }
     router.push(`${pathname}?${newParams.toString()}`);
   };
 
   return (
     <ul className="h-64 space-y-1 overflow-y-auto border-b-zinc-100 pb-5 pt-2.5 scrollbar-hide">
-      <FilterHeader title="categories" query={["category"]} />
+      <FilterHeader title="categories" query={["categoryId"]} />
       {categories.map((category: Categories) => (
         <li
           key={category._id}

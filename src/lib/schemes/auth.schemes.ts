@@ -58,6 +58,10 @@ export const useLoginSchema = () => {
       .string()
       .min(1, t("email-is-required"))
       .regex(/^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/, t("email-required")),
+    // username: z
+    //   .string()
+    //   .min(1, t("firstname-is-required"))
+    //   .regex(/^(?!\s*$).{2,}$/, t("must-characters")),
 
     password: z
       .string()

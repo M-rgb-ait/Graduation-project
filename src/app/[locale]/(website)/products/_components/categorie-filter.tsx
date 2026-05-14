@@ -12,7 +12,7 @@ export default function CategoriesFilter() {
 
   return (
     <div>
-      <FilterHeader title="categories" query={["category"]} />
+      <FilterHeader title="categories" query={["categoryId"]} />
 
       <div id="categories" className="h-64 overflow-auto scrollbar-hide">
         {isLoading && <StatisticsCategorySkeleton />}

@@ -7,31 +7,29 @@ import FilterHeader from "./filter-header";
 import { cn } from "@/src/lib/utils/cn";
 
 export default function FilterRating() {
-  // Navigation
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // Variables
-  const selectedRating = Number(searchParams.get("rateAvg[gte]")) || 0;
+  // بدل rateAvg[gte]
+  const selectedRating = Number(searchParams.get("minRating")) || 0;
 
-  // Functions
   const handleRatingClick = (rating: number) => {
     const params = new URLSearchParams(searchParams);
+
     if (rating === selectedRating) {
-      params.delete("rateAvg[gte]");
+      params.delete("minRating");
     } else {
-      params.set("rateAvg[gte]", rating.toString());
+      params.set("minRating", rating.toString());
     }
+
     router.push(`${pathname}?${params.toString()}`);
   };
 
   return (
     <div className="pt-2.5 pb-5">
-      {/* Title & Reset */}
-      <FilterHeader title="Rating" query={["rateAvg[gte]"]} />
+      <FilterHeader title="Rating" query={["minRating"]} />
 
-      {/* Rating Stars */}
       <div className="flex gap-1">
         {[1, 2, 3, 4, 5].map((value) => (
           <Star
@@ -47,6 +45,53 @@ export default function FilterRating() {
     </div>
   );
 }
+// import { useSearchParams } from "next/navigation";
+// import { Star } from "lucide-react";
+// import { usePathname, useRouter } from "@/src/i18n/navigation";
+// import FilterHeader from "./filter-header";
+// import { cn } from "@/src/lib/utils/cn";
+
+// export default function FilterRating() {
+//   // Navigation
+//   const router = useRouter();
+//   const pathname = usePathname();
+//   const searchParams = useSearchParams();
+
+//   // Variables
+//   const selectedRating = Number(searchParams.get("rateAvg[gte]")) || 0;
+
+//   // Functions
+//   const handleRatingClick = (rating: number) => {
+//     const params = new URLSearchParams(searchParams);
+//     if (rating === selectedRating) {
+//       params.delete("rateAvg[gte]");
+//     } else {
+//       params.set("rateAvg[gte]", rating.toString());
+//     }
+//     router.push(`${pathname}?${params.toString()}`);
+//   };
+
+//   return (
+//     <div className="pt-2.5 pb-5">
+//       {/* Title & Reset */}
+//       <FilterHeader title="Rating" query={["rateAvg[gte]"]} />
+
+//       {/* Rating Stars */}
+//       <div className="flex gap-1">
+//         {[1, 2, 3, 4, 5].map((value) => (
+//           <Star
+//             key={value}
+//             className={cn(
+//               "size-6 cursor-pointer text-amber-500 transition-colors",
+//               value <= selectedRating ? "fill-amber-500" : "text-amber-500",
+//             )}
+//             onClick={() => handleRatingClick(value)}
+//           />
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
 // "use client";
 
 // import { useSearchParams } from "next/navigation";
