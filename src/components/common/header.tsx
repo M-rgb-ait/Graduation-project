@@ -10,10 +10,13 @@ import { useTranslations } from "next-intl";
 import homeSectionImg from "@/public/assets/app-logo1.png";
 import UserDropdown from "@/src/app/[locale]/(website)/products/_components/user-dropdown";
 import { useUser } from "../providers/components/get-user-name";
+import { useWhishlist } from "@/src/lib/hooks/whishlist-get";
 
 export default function Header() {
   const t = useTranslations();
   const { user } = useUser();
+  const { Allwhishlist } = useWhishlist();
+  const productslngth = Allwhishlist?.count ?? 0;
 
   return (
     <div className="fixed inset-x-0 top-0 z-50 bg-white py-1 dark:bg-zinc-800">
@@ -68,12 +71,22 @@ export default function Header() {
 
           {/* Right group */}
           <div className="flex items-center gap-4 ml-auto">
-            <div className="flex items-center gap-2.5">
-              <Heart />
-              <Link href="/cart">
-                <ShoppingCart />
+            <div className="flex items-center gap-3">
+              <Link href="/wishlist" className="relative">
+                {productslngth > 0 && (
+                  <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-semibold text-white">
+                    {productslngth > 99 ? "99+" : productslngth}
+                  </span>
+                )}
+
+                <Heart className="h-6 w-6" />
+              </Link>
+
+              <Link href="/cart" className="relative">
+                <ShoppingCart className="h-6 w-6" />
               </Link>
             </div>
+
             <ToggleLocale />
             <ThemeToggle />
           </div>

@@ -9,9 +9,14 @@ import { X } from "lucide-react";
 type FilterHeaderProps = {
   title: string;
   query: string[];
+  onClear?: () => void;
 };
 
-export default function FilterHeader({ title, query }: FilterHeaderProps) {
+export default function FilterHeader({
+  title,
+  query,
+  onClear,
+}: FilterHeaderProps) {
   // Hooks
   const { deleteSearchParam, navigate } = useQueryParams();
 
@@ -25,6 +30,7 @@ export default function FilterHeader({ title, query }: FilterHeaderProps) {
 
     // Apply the changed by Navigation
     navigate();
+    onClear?.();
   }
 
   return (

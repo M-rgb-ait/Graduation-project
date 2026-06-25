@@ -320,7 +320,7 @@ export default function Registerform() {
           {t.rich("alreaduy-account", {
             Link: (valus) => (
               <Link
-                href="/auth/login"
+                href="/login"
                 className="text-red-700 underline dark:text-pink-300"
               >
                 {valus}

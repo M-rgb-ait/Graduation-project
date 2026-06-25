@@ -34,8 +34,10 @@ export default function ToggleLocale() {
   return (
     <DropdownMenu>
       {/* Trigger */}
-      <DropdownMenuTrigger className="border-none outline-none dark:bg-zinc-700 dark:text-zinc-50">
-        {locale === "ar" ? "العربية" : "English"}
+      <DropdownMenuTrigger asChild>
+        <button className="inline-flex items-center rounded-md px-3 py-2 dark:bg-zinc-700 dark:text-zinc-50">
+          {locale === "ar" ? "العربية" : "English"}
+        </button>
       </DropdownMenuTrigger>
 
       {/* Content */}

@@ -1,6 +1,10 @@
 {
-    "i18n-ally.localesPaths": [
-        "i18n",
-        "i18n/messages"
-    ]
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "i18n-ally.localesPaths": ["src/i18n", "src/i18n/messages"],
+  "i18n-ally.keystyle": "flat"
 }

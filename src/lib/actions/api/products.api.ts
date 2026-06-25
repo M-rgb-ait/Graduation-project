@@ -28,6 +28,14 @@ export async function getProducts(searchParams: SearchParams) {
     metadata: data.metadata,
   };
 }
+export async function fetchProductById(id: string) {
+  const response = await fetch(`${process.env.API}/products/${id}`, {
+    cache: "no-store",
+  });
+  if (!response.ok) throw new Error("Failed to fetch product");
+  const data = await response.json();
+  return data.product;
+}
 // export async function getProducts(searchParams: SearchParams) {
 //   const response = await fetch(
 //     `${process.env.API}/products?${searchParamsToString(searchParams)}`,

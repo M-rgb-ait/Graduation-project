@@ -23,6 +23,11 @@ export default function Loginform() {
   //Translations
   const t = useTranslations();
 
+  // console.log(t("become-family"));
+  // const locale = useLocale();
+
+  // console.log("locale", locale);
+  // console.log("window.location.pathname", window.location.pathname);
   //Mutation
   const { mutate, error, isPending } = useLogin();
 
@@ -187,7 +192,7 @@ export default function Loginform() {
         <p className="text-sm text-gray-700 dark:text-white">
           {t.rich("dont-have-account", {
             link: (chunks) => (
-              <Link href="/auth/register">
+              <Link href="/register">
                 <span className="font-medium text-maroon-700 dark:text-softpink-300">
                   {chunks}
                 </span>

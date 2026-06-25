@@ -21,7 +21,7 @@ import { useUser } from "@/src/components/providers/components/get-user-name";
 import { Link } from "@/src/i18n/navigation";
 import { cn } from "@/src/lib/utils/cn";
 import { Button } from "@/src/components/ui/button";
-import { useDeieteMyAccount } from "../../../auth/_hook/use-delete";
+import { useDeieteMyAccount } from "../../../(auth)/_hook/use-delete";
 
 export default function UserDropdown() {
   // Translation

@@ -72,9 +72,12 @@ export default function AboutSection() {
                   </p>
                 </div>
 
-                <p>
+                {/* <p>
                   <Link href="/products">
-                    <Button className="bg-maroon-600 text-white hover:bg-maroon-500 dark:bg-softpink-200 dark:text-zinc-800">
+                    <Button
+                      asChild
+                      className="bg-maroon-600 text-white hover:bg-maroon-500 dark:bg-softpink-200 dark:text-zinc-800"
+                    >
                       <p>{t("discover")}</p>
                       {local === "ar" ? (
                         <ArrowLeft
@@ -91,7 +94,31 @@ export default function AboutSection() {
                       )}
                     </Button>
                   </Link>
-                </p>
+                </p> */}
+                <Button
+                  // asChild
+                  className="bg-maroon-600 text-white hover:bg-maroon-500 dark:bg-softpink-200 dark:text-zinc-800"
+                >
+                  <Link href="/products">
+                    <span className="flex items-center gap-2">
+                      {t("discover")}
+
+                      {local === "ar" ? (
+                        <ArrowLeft
+                          width={16}
+                          height={16}
+                          className="text-maroon-50 dark:text-zinc-800"
+                        />
+                      ) : (
+                        <ArrowRight
+                          width={16}
+                          height={16}
+                          className="text-maroon-50 dark:text-zinc-800"
+                        />
+                      )}
+                    </span>
+                  </Link>
+                </Button>
 
                 <div className="mt-2 grid gap-6 md:grid-cols-2">
                   <div className="flex items-center">

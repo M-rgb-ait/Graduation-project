@@ -15,7 +15,7 @@ export const useRegister = () => {
     onSuccess: () => {
       toast.success(t("success-create-account"));
       setTimeout(() => {
-        router.push("/auth/login");
+        router.push("/login");
       }, 3000);
     },
   });

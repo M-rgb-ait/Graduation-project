@@ -6,8 +6,22 @@ import { useSearchParams } from "next/navigation";
 import { usePathname, useRouter } from "@/src/i18n/navigation";
 import { useInfiniteCategories } from "../_hooks/use-infinite-categorie";
 import FilterHeader from "./filter-header";
+// import { useState } from "react";
+// import { Button } from "@/src/components/ui/button";
+// type CategoriesProps = {
+//   selected: string;
+//   setSelected: React.Dispatch<React.SetStateAction<string>>;
+// };
+type CategoriesProps = {
+  selected?: string;
+  setSelected?: (id: string) => void;
+};
+export default function CategorieItem({
+  selected,
+  setSelected,
+}: CategoriesProps) {
+  // const [search, setSearch] = useState("");
 
-export default function CategorieItem() {
   // Navigation
   const router = useRouter();
   const pathname = usePathname();
@@ -18,20 +32,28 @@ export default function CategorieItem() {
   const handleClick = (id: string) => {
     const newParams = new URLSearchParams(searchParams);
     if (id === selectedCategory) {
-      newParams.delete("categoryId");
+      newParams.delete("category");
     } else {
-      newParams.set("categoryId", id);
+      newParams.set("category", id);
     }
     router.push(`${pathname}?${newParams.toString()}`);
   };
 
   return (
+    // <form method="get" action={pathname}></form>
     <ul className="h-64 space-y-1 overflow-y-auto border-b-zinc-100 pb-5 pt-2.5 scrollbar-hide">
-      <FilterHeader title="categories" query={["categoryId"]} />
+      <FilterHeader title="categories" query={["category"]} />
       {categories.map((category: Categories) => (
         <li
           key={category._id}
-          onClick={() => handleClick(category._id)}
+          // onClick={() => handleClick(category._id)}
+          // onClick={() => setSearch(category._id)}
+          // onClick={() => setSelected(category._id)}
+          onClick={() => setSelected?.(category._id)}
+          // onChange={(e) => {
+          //   const value = (e.target as HTMLInputElement).value;
+          //   setSearch(value);
+          // }}
           className={cn(
             "group flex cursor-pointer items-center gap-1 rounded-md pr-2.5 text-sm transition-colors hover:bg-maroon-50 rtl:pr-0",
             selectedCategory === category._id
@@ -60,6 +82,9 @@ export default function CategorieItem() {
           <span className="ms-2.5 truncate font-medium">{category.name}</span>
         </li>
       ))}
+      {/* <Button onClick={() => handleClick(search)} className="w-full">
+        Fillter
+      </Button> */}
     </ul>
   );
 }

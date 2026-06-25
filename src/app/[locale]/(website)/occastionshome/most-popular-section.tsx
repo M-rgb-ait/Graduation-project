@@ -11,7 +11,6 @@ type occasionNavProps = {
   products: Product[];
   currentOccasionId?: string;
 };
-
 export default function MostPopular({
   products,
   currentOccasionId,
@@ -30,7 +29,7 @@ export default function MostPopular({
 
       params.set("occasion", data.occasions[0]._id);
 
-      router.push(`${pathname}?${params.toString()}`, {
+      router.replace(`${pathname}?${params.toString()}`, {
         scroll: false,
       });
     }
@@ -61,7 +60,7 @@ export default function MostPopular({
                 ${
                   currentOccasionId === o._id
                     ? " text-red-600 font-bold"
-                    : " text-black"
+                    : " text-black dark:text-white"
                 }`}
               onClick={() => hendekClick(o._id)}
             >
@@ -77,7 +76,7 @@ export default function MostPopular({
           </p>
         ) : (
           partData?.map((product) => (
-            <ProductItem key={product.id} product={product} />
+            <ProductItem key={product._id} product={product} />
           ))
         )}
       </div>

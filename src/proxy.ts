@@ -1,19 +1,24 @@
 import { cookies } from "next/headers";
-import { NextRequest, NextResponse } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { routing } from "@/src/i18n/routing";
 
-const authPages = ["/auth/login", "/auth/register", "/auth/forget"];
+import { NextRequest, NextResponse } from "next/server";
+const intlMiddleware = createMiddleware(routing);
+
+const authPages = ["/login", "/register", "/forget", "/products"];
 const locales = ["en", "ar"];
 const publicPages = locales.flatMap((locale) => [
   `/${locale}`,
-  "/products",
+  // "/products",
   "/categories",
   "/occasions",
   "/contact",
   "/about",
   ...authPages.map((p) => `/${locale}${p}`),
 ]);
-
 export default async function proxy(req: NextRequest) {
+  const response = intlMiddleware(req);
+
   const cookieStore = await cookies();
   const token = cookieStore.get("accessToken")?.value;
 
@@ -24,6 +29,9 @@ export default async function proxy(req: NextRequest) {
     ? pathname.split("/")[1]
     : "en";
 
+  if (pathname.startsWith(`/${locale}/products`)) {
+    return NextResponse.next();
+  }
   // Redirect root "/" → default locale
   if (pathname === "/") {
     const url = req.nextUrl.clone();
@@ -46,11 +54,11 @@ export default async function proxy(req: NextRequest) {
   const isProtectedPage = !isPublicPage;
   if (isProtectedPage && !token) {
     return NextResponse.redirect(
-      new URL(`/${locale}/auth/login`, req.nextUrl.origin),
+      new URL(`/${locale}/login`, req.nextUrl.origin),
     );
   }
 
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {

@@ -72,3 +72,25 @@ export default function Footer() {
     </div>
   );
 }
+
+// {
+//   "version": "0.2.0",
+//   "configurations": [
+//     {
+//       "name": "Next.js: debug server",
+//       "type": "node",
+//       "request": "launch",
+//       "runtimeExecutable": "yarn",
+//       "runtimeArgs": ["dev"],
+//       "console": "integratedTerminal"
+//     },
+//     {
+//       "name": "Next.js: debug client",
+//       "type": "chrome",
+//       "request": "launch",
+//       "url": "http://localhost:3000",
+//       "webRoot": "${workspaceFolder}"
+//     }
+//   ]
+// }
+// .vscode/launch.json

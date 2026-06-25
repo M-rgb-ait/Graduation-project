@@ -9,7 +9,6 @@
   "return-home": "رجوع لصفحه الرئيسيه",
   "email": "اكتب الايميل",
   "Login": "تسجيل الدخول",
-
   "firstname-is-required": "الاسم الأول مطلوب",
   "must-characters": "يجب أن يكون على الأقل حرفين",
   "last-name-is-required": "اسم العائلة مطلوب",
@@ -74,18 +73,13 @@
   "terms-conditions": "الشروط والأحكام",
   "privacy-policy": "سياسة الخصوصية",
   "faqs": "الأسئلة الشائعة",
-
   "delivering-moments": "نصنع <strong>لحظات</strong> لا تُنسى",
-
   "make-message": "نحوّل كل هدية وكل منتج إلى رسالة حب واهتمام وذكريات جميلة لكل مناسبة خاصة.",
-
   "discover": "اكتشف المزيد",
-
   "competitive-shopping": "تجربة تسوق تنافسية",
   "premium-quality": "جودة عالية ومميزة",
   "perfect-occasion": "مثالي لكل المناسبات",
   "fast-delivery": "توصيل سريع وموثوق",
-
   "img-box-ribbon": "علبة هدايا بشريط",
   "img-red-heard": "قلب أحمر للزينة",
   "img-balloons": "بالونات للزينة",
@@ -93,7 +87,6 @@
   "imgs-gift-boxes": "صور صناديق الهدايا المميزة",
   "gallery": "المعرض",
   "trusted-by-number": "موثوق به من قبل أكثر من <strong> </strong> شركة ",
-
   "trusted-img-1": "شعار شركة كوكو نَت",
   "trusted-img-2": "شعار شركة جينيارد",
   "trusted-img-3": "شعار شركة إنجود",
@@ -105,18 +98,14 @@
   "home-section-one-button": "تسوق الآن",
   "home-static-image-alt": "علب هدايا حمراء",
   "home-carousel-button": "تسوق الآن",
-
   "home-carousel-slide-one-title": "مجموعة هدايا مميزة",
   "home-carousel-slide-one-desc": "اكتشف هدايا فريدة لكل المناسبات",
   "home-carousel-slide-alt": "علب هدايا وتغليف",
-
   "home-carousel-slide-two-title": "عروض خاصة",
   "home-carousel-slide-two-desc": "أفضل الخصومات والعروض الحصرية",
-
   "home-carousel-slide-three-title": "مجموعة العيد",
   "home-carousel-slide-three-desc": "أفضل الهدايا للمواسم والاحتفالات",
   "home-carousel-slide-three-alt": "هدايا وزينة العيد",
-
   "home-occasions-item-one-alt": "خاتم في صندوق به ازهار",
   "home-occasions-item-one-badge": "زواج",
   "home-occasions-item-one-title": "احتفل بها للأبد و ستتذكرك دائما",
@@ -136,58 +125,44 @@
   "home-features-item-one-desc": "للطلبات اللتي تزيد عن {price, number, currency-no-digits}",
   "home-carousel-slide-one-alt": "بانر عروض الصيف",
   "home-carousel-slide-two-alt": "بانر المنتجات الجديدة",
-
   "home-carousel-appliances-title": "الأجهزة المنزلية",
   "home-carousel-appliances-desc": "أجهزة المنزل والمطبخ",
   "home-carousel-appliances-alt": "قسم الأجهزة",
-
   "home-carousel-beepers-title": "الأجهزة الذكية",
   "home-carousel-beepers-desc": "أجهزة وإكسسوارات ذكية",
   "home-carousel-beepers-alt": "قسم الأجهزة الذكية",
-
   "home-carousel-children-books-title": "كتب الأطفال",
   "home-carousel-children-books-desc": "كتب تعليمية وترفيهية للأطفال",
   "home-carousel-children-books-alt": "قسم كتب الأطفال",
-
   "home-carousel-dresses-title": "الملابس",
   "home-carousel-dresses-desc": "أزياء وملابس عصرية",
   "home-carousel-dresses-alt": "قسم الملابس",
-
   "home-carousel-earbuds-title": "سماعات أذن",
   "home-carousel-earbuds-desc": "سماعات لاسلكية حديثة",
   "home-carousel-earbuds-alt": "قسم السماعات",
-
   "home-carousel-furniture-title": "الأثاث",
   "home-carousel-furniture-desc": "أثاث منزلي عصري",
   "home-carousel-furniture-alt": "قسم الأثاث",
-
   "home-carousel-misc-title": "منتجات متنوعة",
   "home-carousel-misc-desc": "منتجات مختلفة ومفيدة",
   "home-carousel-misc-alt": "قسم المتنوع",
-
   "home-carousel-mobiles-title": "الهواتف",
   "home-carousel-mobiles-desc": "هواتف ذكية وإكسسوارات",
   "home-carousel-mobiles-alt": "قسم الهواتف",
-
   "home-carousel-nike-title": "نايكي",
   "home-carousel-nike-desc": "ملابس وأحذية رياضية",
   "home-carousel-nike-alt": "ماركة نايكي",
-
   "home-carousel-dermahub-title": "ذا ديرما هَب",
   "home-carousel-dermahub-desc": "منتجات العناية بالبشرة",
   "home-carousel-dermahub-alt": "ماركة ذا ديرما هب",
   "home-occasions-item-two-title": "هدايا الزفاف",
-
   "home-occasions-item-three-title": "هدايا التخرج",
-
   "home-occasions-item-four-alt": "مناسبة عيد الحب",
   "home-occasions-item-four-badge": "عيد الحب",
   "home-occasions-item-four-title": "هدايا عيد الحب",
-
   "home-occasions-item-five-alt": "مناسبة عيد الأم",
   "home-occasions-item-five-badge": "عيد الأم",
   "home-occasions-item-five-title": "هدايا عيد الأم",
-
   "home-occasions-item-six-alt": "مناسبة العيد",
   "home-occasions-item-six-badge": "العيد",
   "home-occasions-item-six-title": "هدايا العيد",
@@ -200,5 +175,6 @@
   "my-profile": "ملفي الشخصي",
   "my-addresses": "عنويني",
   "my-orders": "طلباتي",
-  "dashboard": "لوحه التحكم"
+  "dashboard": "لوحه التحكم",
+  "welcome": "مرحبا"
 }
