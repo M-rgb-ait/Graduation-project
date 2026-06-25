@@ -19,7 +19,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
         <div className="flex items-center justify-center p-6">{children}</div>
 
         {/* Side image */}
-        <div className="relative hidden md:block">
+        <div className="relative hidden min-h-screen md:block">
           <Image
             src="/assets/home-section-1-static.png"
             alt="red presents"
