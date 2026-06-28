@@ -11,6 +11,7 @@ import homeSectionImg from "@/public/assets/app-logo1.png";
 import UserDropdown from "@/src/app/[locale]/(website)/products/_components/user-dropdown";
 import { useUser } from "../providers/components/get-user-name";
 import { useWhishlist } from "@/src/lib/hooks/whishlist-get";
+import UseAddres from "@/src/app/[locale]/(website)/user-addreses/_components/use-addres";
 
 export default function Header() {
   const t = useTranslations();
@@ -34,6 +35,8 @@ export default function Header() {
               />
             </div>
           </Link>
+          {/* use addres */}
+          <UseAddres />
 
           {/* Mobile Icons */}
           <div className="absolute end-0 flex sm:hidden items-center gap-3">
