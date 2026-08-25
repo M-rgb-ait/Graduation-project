@@ -157,10 +157,7 @@ export default function Loginform() {
             </div>
             {/* Forgot password */}
             <div className="mt-2 text-end">
-              <Link
-                href="/auth/forgot"
-                className="text-rose-700 dark:text-pink-300"
-              >
+              <Link href="/forgot" className="text-rose-700 dark:text-pink-300">
                 {t("forgot-password")}
               </Link>
             </div>

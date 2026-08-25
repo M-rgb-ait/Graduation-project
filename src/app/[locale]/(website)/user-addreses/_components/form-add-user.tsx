@@ -138,7 +138,10 @@ export default function FormAddUserAddres({ datas, onClose }: Props) {
           </h3>
         </DialogHeader>
         {/* Stepper */}
-        <StepperProgress step={step === "form" ? 1 : step === "map" ? 2 : 3} />
+        <StepperProgress
+          completed={step === "success"}
+          step={step === "form" ? 1 : step === "map" ? 2 : 3}
+        />
 
         <div className="space-y-4">
           {step === "form" ? (

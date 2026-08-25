@@ -8,6 +8,7 @@ import FeaturesSection from "./_components/features-section";
 import MostPopular from "../occastionshome/most-popular-section";
 import { getProducts } from "@/src/lib/actions/api/products.api";
 import ChatPage from "../chat/components/chat";
+// import UploadPhoto from "../photo/components/photo";
 // import GetAllOccastions from "../occastionshome/_api/get-all-name";
 export default async function Home({
   searchParams,
@@ -32,6 +33,7 @@ export default async function Home({
       <AboutSection />
       <GallerySection />
       <ImagesSection />
+      {/* <UploadPhoto /> */}
       <ChatPage />
     </div>
   );

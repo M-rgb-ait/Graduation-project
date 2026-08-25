@@ -14,6 +14,7 @@ type User = {
   firstName: string;
   lastName: string;
   email: string;
+  photo?: string;
 };
 
 type UserContextType = {
@@ -61,16 +62,14 @@ export function UserProvider({ children }: { children: ReactNode }) {
   }, [user, AddWishlist]);
 
   const setUser = (user: User | null) => {
+    console.log("NEW USER", user);
+
     setUserState(user);
 
     if (user) {
       nookies.set(null, "user", JSON.stringify(user), {
         path: "/",
         maxAge: 7 * 24 * 60 * 60,
-      });
-    } else {
-      nookies.destroy(null, "user", {
-        path: "/",
       });
     }
   };

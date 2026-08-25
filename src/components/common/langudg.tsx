@@ -26,7 +26,7 @@ export default function ToggleLocale() {
 
   //   Function
   const handleToggle = (locale: Locale) => {
-    router.push(`${pathname}?${searchParams.toString()}`, {
+    router.replace(`${pathname}?${searchParams.toString()}`, {
       locale,
     });
   };

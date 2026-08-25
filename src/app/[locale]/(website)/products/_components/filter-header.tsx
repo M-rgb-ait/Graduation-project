@@ -9,6 +9,7 @@ import { X } from "lucide-react";
 type FilterHeaderProps = {
   title: string;
   query: string[];
+  showReset?: boolean;
   onClear?: () => void;
 };
 
@@ -16,6 +17,7 @@ export default function FilterHeader({
   title,
   query,
   onClear,
+  showReset = true,
 }: FilterHeaderProps) {
   // Hooks
   const { deleteSearchParam, navigate } = useQueryParams();
@@ -41,15 +43,18 @@ export default function FilterHeader({
       </h2>
 
       {/* Reset button */}
-      <Button
-        onClick={resetSearchQuery}
-        variant="empty"
-        size="empty"
-        className="gap gap-1 text-sm text-red-600 rtl:flex-row-reverse"
-      >
-        <X className="size-4" />
-        {t("reset")}
-      </Button>
+
+      {showReset && (
+        <Button
+          onClick={resetSearchQuery}
+          variant="empty"
+          size="empty"
+          className="gap gap-1 text-sm text-red-600 rtl:flex-row-reverse"
+        >
+          <X className="size-4" />
+          {t("reset")}
+        </Button>
+      )}
     </header>
   );
 }

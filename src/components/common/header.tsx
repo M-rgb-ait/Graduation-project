@@ -12,12 +12,20 @@ import UserDropdown from "@/src/app/[locale]/(website)/products/_components/user
 import { useUser } from "../providers/components/get-user-name";
 import { useWhishlist } from "@/src/lib/hooks/whishlist-get";
 import UseAddres from "@/src/app/[locale]/(website)/user-addreses/_components/use-addres";
+import NotificationDialog from "@/src/app/[locale]/(website)/notifications/_components/notifications";
+import useInfiniteNotifications from "@/src/app/[locale]/(website)/notifications/hooks/use-get-notification";
+import UploadPhoto from "@/src/app/[locale]/(website)/photo/components/photo";
 
 export default function Header() {
   const t = useTranslations();
   const { user } = useUser();
   const { Allwhishlist } = useWhishlist();
-  const productslngth = Allwhishlist?.count ?? 0;
+  const { notifications } = useInfiniteNotifications();
+  const productslength = Allwhishlist?.count ?? 0;
+
+  const unreadNotificationsCount =
+    notifications?.filter((notification) => !notification.isRead).length ?? 0;
+  console.log("unreadNotificationsCount", unreadNotificationsCount);
 
   return (
     <div className="fixed inset-x-0 top-0 z-50 bg-white py-1 dark:bg-zinc-800">
@@ -60,6 +68,8 @@ export default function Header() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-4">
+          <UploadPhoto />
+
           {/* User */}
           <div className="flex items-center gap-1.5">
             {user ? (
@@ -73,21 +83,36 @@ export default function Header() {
           </div>
 
           {/* Right group */}
-          <div className="flex items-center gap-4 ml-auto">
+          <div className="ml-auto flex items-center gap-4">
             <div className="flex items-center gap-3">
+              {/* Wishlist */}
               <Link href="/wishlist" className="relative">
-                {productslngth > 0 && (
+                {productslength > 0 && (
                   <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-semibold text-white">
-                    {productslngth > 99 ? "99+" : productslngth}
+                    {productslength > 99 ? "99+" : productslength}
                   </span>
                 )}
 
                 <Heart className="h-6 w-6" />
               </Link>
 
+              {/* Cart */}
               <Link href="/cart" className="relative">
                 <ShoppingCart className="h-6 w-6" />
               </Link>
+
+              {/* Notifications */}
+              <div className="relative">
+                {unreadNotificationsCount > 0 && (
+                  <span className="absolute -right-2 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-semibold text-white">
+                    {unreadNotificationsCount > 99
+                      ? "99+"
+                      : unreadNotificationsCount}
+                  </span>
+                )}
+
+                <NotificationDialog />
+              </div>
             </div>
 
             <ToggleLocale />

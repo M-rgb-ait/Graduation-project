@@ -8,7 +8,7 @@ import { searchParamsToString } from "../../utils/handle-search-params";
  */
 export async function getProducts(searchParams: SearchParams) {
   const response = await fetch(
-    `${process.env.API}/products?${searchParamsToString(searchParams)}`,
+    `${process.env.API}/products?limit=5&${searchParamsToString(searchParams)}`,
     { cache: "no-store" },
   );
 
@@ -27,6 +27,19 @@ export async function getProducts(searchParams: SearchParams) {
     products: data.products,
     metadata: data.metadata,
   };
+}
+export async function fetchPopularProducts(occasionId?: string) {
+  try {
+    const baseUrl = `${process.env.API}/products?limit=12&sort=sold`;
+    const url = occasionId ? `${baseUrl}&occasion=${occasionId}` : baseUrl;
+    const response = await fetch(url);
+    if (!response.ok) throw new Error("Failed to fetch products");
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    void error;
+    return [];
+  }
 }
 export async function fetchProductById(id: string) {
   const response = await fetch(`${process.env.API}/products/${id}`, {

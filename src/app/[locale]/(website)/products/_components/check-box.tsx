@@ -22,6 +22,7 @@ export default function CheckBox() {
   const [search, setSearch] = useState<string[]>(
     searchParams.getAll("category"),
   );
+  const [show, setShow] = useState(false);
   const handleClick = () => {
     const params = new URLSearchParams(searchParams);
     params.delete("category");
@@ -32,12 +33,14 @@ export default function CheckBox() {
 
     router.push(`${pathname}?${params.toString()}`);
   };
+  const displayedCategories = show ? categories : categories.slice(0, 3);
 
   return (
     <div>
       <FilterHeader
         title="categories"
-        query={["category"]}
+        query={search.length > 0 ? ["category"] : []}
+        showReset={search.length > 0}
         onClear={() => {
           setSearch([]);
         }}
@@ -67,7 +70,7 @@ export default function CheckBox() {
         );
       })}
       <div className="space-y-2">
-        {categories.map((category: Categories) => (
+        {displayedCategories.map((category: Categories) => (
           <div key={category._id} className="flex items-center gap-2">
             <Checkbox
               id={category._id}
@@ -93,8 +96,19 @@ export default function CheckBox() {
             <Label htmlFor={category._id}>{category.name}</Label>
           </div>
         ))}
+        {categories.length > 3 && (
+          <Button
+            onClick={() => {
+              // setShow(show == false ? true : false);
+              setShow((prev) => !prev);
+            }}
+          >
+            {!show ? `Show more` : ` Less more`}
+          </Button>
+        )}
       </div>
-      <Button spinner={isLoading} onClick={handleClick} className="w-full">
+      {/* <Button className="mt-3">Show more</Button> */}
+      <Button spinner={isLoading} onClick={handleClick} className="w-full mt-3">
         Filter ({search.length})
       </Button>
     </div>

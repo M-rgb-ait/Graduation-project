@@ -3,6 +3,7 @@ import { clearAllWishlist } from "../api/wishlist-clearall.api";
 import { toast } from "sonner";
 
 export const useClearAllWishlist = () => {
+  // const {invalidateQueries} = useQueryClient();
   const queryClient = useQueryClient();
 
   const { mutate: ClearAllWishlist, isPending: ClearAllisPending } =
