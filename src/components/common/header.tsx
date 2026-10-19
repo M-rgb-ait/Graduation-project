@@ -1,7 +1,7 @@
 "use client";
 import { Link } from "@/src/i18n/navigation";
 import Image from "next/image";
-import { Input } from "../ui/input";
+// import { Input } from "../ui/input";
 import { Heart, ShoppingCart, User } from "lucide-react";
 import ToggleLocale from "./langudg";
 import ThemeToggle from "./them";
@@ -15,6 +15,7 @@ import UseAddres from "@/src/app/[locale]/(website)/user-addreses/_components/us
 import NotificationDialog from "@/src/app/[locale]/(website)/notifications/_components/notifications";
 import useInfiniteNotifications from "@/src/app/[locale]/(website)/notifications/hooks/use-get-notification";
 import UploadPhoto from "@/src/app/[locale]/(website)/photo/components/photo";
+import InputSearch from "../../app/[locale]/(website)/search-input/input-search";
 
 export default function Header() {
   const t = useTranslations();
@@ -59,11 +60,7 @@ export default function Header() {
 
         {/* Search */}
         <div className="w-full md:flex-1 md:mx-4">
-          <Input
-            placeholder={t("gift-looking-for")}
-            type="search"
-            className="w-full"
-          />
+          <InputSearch />
         </div>
 
         {/* Desktop Menu */}

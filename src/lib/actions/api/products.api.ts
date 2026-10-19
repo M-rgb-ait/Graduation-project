@@ -6,7 +6,7 @@ import { searchParamsToString } from "../../utils/handle-search-params";
  * @returns {Promise<{ products: Product[], metadata: ProductsMetadata }>} Products and metadata
  * @throws {Error} If the request fails
  */
-export async function getProducts(searchParams: SearchParams) {
+export async function getProducts(searchParams?: SearchParams) {
   const response = await fetch(
     `${process.env.API}/products?limit=5&${searchParamsToString(searchParams)}`,
     { cache: "no-store" },

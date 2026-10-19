@@ -5,7 +5,13 @@ import { routing } from "@/src/i18n/routing";
 import { NextRequest, NextResponse } from "next/server";
 const intlMiddleware = createMiddleware(routing);
 
-const authPages = ["/login", "/register", "/forgot", "/products"];
+const authPages = [
+  "/login",
+  "/register",
+  "/forgot",
+  "/products",
+  "/search-input",
+];
 const locales = ["en", "ar"];
 const publicPages = locales.flatMap((locale) => [
   `/${locale}`,
